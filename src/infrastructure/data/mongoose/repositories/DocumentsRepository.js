@@ -27,9 +27,22 @@ const DocumentsRepository = () => {
       : undefined;
   };
 
+  const find = async () => {
+    const documents = await DocumentModel.find();
+    return documents.map((doc) => {
+      return {
+        id: doc._id,
+        title: doc.title,
+        description: doc.description,
+        keywords: doc.keywords,
+      };
+    });
+  };
+
   return {
     create,
     findById,
+    find,
   };
 };
 

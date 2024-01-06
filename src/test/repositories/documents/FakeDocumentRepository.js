@@ -20,7 +20,10 @@ const FakeDocumentRepository = () => {
     return await documents.find((doc) => doc.id === id);
   };
 
-  const find = (id) => {};
+  const find = () => {
+    return documents;
+  };
+
   const save = (id) => {};
   const remove = (id) => {};
   return { create, findById, find, save, remove };
