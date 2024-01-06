@@ -1,8 +1,8 @@
-const newDocument = require('./Document');
+const CreateDocumentUseCase = require('./CreateDocument.usecase');
 
-describe('Document Entity - Unit Test', () => {
+describe('Create Document Use Case - Unit Test', () => {
   it('should create a new document', () => {
-    const document = newDocument({
+    const document = CreateDocumentUseCase({
       title: 'Primeiro Documento Teste',
       description: 'Documento de Teste para desafio Jurisoft',
       owner_id: '1',

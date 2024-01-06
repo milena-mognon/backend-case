@@ -1,4 +1,4 @@
-const newDocument = require('../../domain/documents/entities/Document');
+const newDocument = require('../../../../domain/documents/entities/Document');
 
 const CreateDocumentUseCase = ({ title, description, owner_id, keywords }) => {
   const document = newDocument({
