@@ -1,6 +1,11 @@
 const newDocument = require('../../../../domain/documents/entities/Document');
 
-const CreateDocumentUseCase = ({ title, description, owner_id, keywords }) => {
+const CreateDocumentUseCase = async ({
+  title,
+  description,
+  owner_id,
+  keywords,
+}) => {
   const document = newDocument({
     title,
     description,

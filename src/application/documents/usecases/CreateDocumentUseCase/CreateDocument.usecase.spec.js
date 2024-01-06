@@ -1,8 +1,8 @@
 const CreateDocumentUseCase = require('./CreateDocument.usecase');
 
 describe('Create Document Use Case - Unit Test', () => {
-  it('should create a new document', () => {
-    const document = CreateDocumentUseCase({
+  it('should create a new document', async () => {
+    const document = await CreateDocumentUseCase({
       title: 'Primeiro Documento Teste',
       description: 'Documento de Teste para desafio Jurisoft',
       owner_id: '1',
