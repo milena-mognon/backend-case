@@ -1,12 +1,9 @@
 const newDocument = require('../../../../domain/documents/entities/Document');
-const createDocument = require('../../../../infrastructure/data/mongoose/repositories/DocumentsRepository');
 
-const CreateDocumentUseCase = async ({
-  title,
-  description,
-  owner_id,
-  keywords,
-}) => {
+const CreateDocumentUseCase = async (
+  repository,
+  { title, description, owner_id, keywords },
+) => {
   const document = newDocument({
     title,
     description,
@@ -14,7 +11,7 @@ const CreateDocumentUseCase = async ({
     keywords,
   });
 
-  const createdDocument = await createDocument(document);
+  const createdDocument = await repository().create(document);
 
   return createdDocument;
 };
