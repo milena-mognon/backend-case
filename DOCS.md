@@ -7,6 +7,7 @@
 - Mongoose
 - Docker
 - Jest
+- Github Actions
 
 ## 🚀 Como executar
 
@@ -21,3 +22,5 @@ Para rodar o banco de dados, execute o comando `docker compose up -d --build` na
 ### Testes
 
 Os testes do sistema foram desenvolvidos utilizando Jest. Para executar os teste utilize o seguinte comando no terminal `yarn test` ou `npm run test`
+
+Também é possível verificar se os testes passaram no GitHub. Em todo push para a branch main uma action é executada verificando se os testes estão passando.

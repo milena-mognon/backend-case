@@ -22,4 +22,12 @@ describe('Find Document By Id Use Case - Unit Test', () => {
     );
     expect(document.keywords).toEqual(['Documento', 'Jurisoft']);
   });
+
+  it('should throw an error id document was not found', async () => {
+    expect(async () => {
+      return await FindDocumentByIdUseCase(FakeDocumentRepository, {
+        document_id: '1234',
+      });
+    }).rejects.toBeInstanceOf(Error);
+  });
 });
