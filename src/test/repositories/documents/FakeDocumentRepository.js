@@ -1,11 +1,11 @@
 const { randomUUID } = require('node:crypto');
 
 /** Mock do repositório de documentos para utilizar na execução de testes */
-const FakeDocumentRepository = () => {
-  const documents = [];
+const documents = [];
 
+const FakeDocumentRepository = () => {
   const create = (document) => {
-    const id = randomUUID();
+    const id = document?.id ?? randomUUID();
     documents.push({
       title: document.title,
       description: document.description,
@@ -13,9 +13,13 @@ const FakeDocumentRepository = () => {
       id,
     });
 
-    return documents.find((doc) => (doc.id = id));
+    return documents.find((doc) => doc.id === id);
   };
-  const findById = (id) => {};
+
+  const findById = async (id) => {
+    return await documents.find((doc) => doc.id === id);
+  };
+
   const find = (id) => {};
   const save = (id) => {};
   const remove = (id) => {};

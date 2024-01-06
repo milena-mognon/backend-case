@@ -1,8 +1,9 @@
 const { Router } = require('express');
-const createDocument = require('../controllers/documents/DocumentsController');
+const DocumentsController = require('../controllers/documents/DocumentsController');
 
 const documentsRoutes = new Router();
 
-documentsRoutes.post('/', createDocument);
+documentsRoutes.post('/', DocumentsController().create);
+documentsRoutes.get('/:id', DocumentsController().findById);
 
 module.exports = documentsRoutes;
