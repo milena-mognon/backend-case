@@ -1,0 +1,24 @@
+name: Backend - Verify Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Node Setup
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install modules
+        run: yarn
+
+      - name: Verify Tests
+        run: yarn test
