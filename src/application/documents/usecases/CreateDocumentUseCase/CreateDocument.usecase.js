@@ -1,4 +1,5 @@
 const newDocument = require('../../../../domain/documents/entities/Document');
+const createDocument = require('../../../../infrastructure/data/mongoose/repositories/DocumentsRepository');
 
 const CreateDocumentUseCase = async ({
   title,
@@ -13,6 +14,8 @@ const CreateDocumentUseCase = async ({
     keywords,
   });
 
-  return document;
+  const createdDocument = await createDocument(document);
+
+  return createdDocument;
 };
 module.exports = CreateDocumentUseCase;

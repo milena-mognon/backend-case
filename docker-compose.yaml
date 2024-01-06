@@ -1,0 +1,19 @@
+version: '3.9'
+
+networks:
+  backend-case:
+    name: backend-case
+    driver: bridge
+
+services:
+  mongo:
+    image: mongo:4.4.27-focal
+    container_name: mongo-case
+    env_file:
+      - ./.env
+    volumes:
+      - ./mongo/mongo_data:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - backend-case
