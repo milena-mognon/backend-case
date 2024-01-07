@@ -19,7 +19,7 @@ const DocumentsRepository = () => {
   const find = async () => {
     const documents = await DocumentModel.find();
     return documents.map((doc) => {
-      newDocument(doc);
+      return newDocument(doc);
     });
   };
 
