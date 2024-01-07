@@ -5,6 +5,7 @@ describe('Find Document By Id Use Case - Unit Test', () => {
   it('should find a document by id', async () => {
     await FakeDocumentRepository().create({
       id: '123',
+      owner_id: '111',
       title: 'Primeiro Documento Teste',
       description: 'Documento de Teste para desafio Jurisoft',
       keywords: ['Documento', 'Jurisoft'],

@@ -1,4 +1,5 @@
 const { randomUUID } = require('node:crypto');
+const ValidationError = require('../../shared/errors/ValidationError');
 
 const newDocument = ({
   title,
@@ -8,6 +9,7 @@ const newDocument = ({
   related_files = [],
   id = randomUUID(),
 }) => {
+  validate({ title, owner_id });
   return {
     id,
     title,
@@ -21,6 +23,15 @@ const newDocument = ({
       };
     }),
   };
+};
+
+const validate = ({ title, owner_id }) => {
+  if (!title) {
+    ValidationError('Title is required');
+  }
+  if (!owner_id) {
+    ValidationError('Owner is required');
+  }
 };
 
 module.exports = newDocument;

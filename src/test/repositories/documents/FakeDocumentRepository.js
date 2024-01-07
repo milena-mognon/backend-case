@@ -13,11 +13,17 @@ const FakeDocumentRepository = () => {
   };
 
   const findById = async (id) => {
-    return await documents.find((doc) => doc.id === id);
+    return await documents.find((doc) => {
+      if (doc.id === id) {
+        return newDocument(doc);
+      }
+    });
   };
 
   const find = () => {
-    return documents;
+    return documents.map((doc) => {
+      return newDocument(doc);
+    });
   };
 
   const findByOwnerId = async (owner_id) => {
