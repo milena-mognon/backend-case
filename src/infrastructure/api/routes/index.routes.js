@@ -7,7 +7,8 @@ const EnsureAuthentication = require('../middleware/EnsureAuthentication');
 const routes = new Router();
 
 routes.use('/documents', EnsureAuthentication, documentsRoutes);
-routes.use('/users', EnsureAuthentication, usersRoutes);
+
+routes.use('/users', usersRoutes);
 routes.use('/session', sessionRoutes);
 
 module.exports = routes;

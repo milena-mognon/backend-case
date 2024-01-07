@@ -27,7 +27,7 @@ const AuthenticateUseCase = async (repository, { email, password }) => {
       expiresIn: '1d',
     },
   );
-  return token;
+  return { token };
 };
 
 module.exports = AuthenticateUseCase;
