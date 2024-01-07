@@ -1,7 +1,7 @@
 const CreateDocumentUseCase = require('../../../../application/documents/usecases/CreateDocumentUseCase/CreateDocument.usecase');
 const FindDocumentByIdUseCase = require('../../../../application/documents/usecases/FindDocumentByIdUseCase/FindDocumentById.usecase');
 const FindDocumentsUseCase = require('../../../../application/documents/usecases/FindDocumentsUseCase/FindDocuments.usecase');
-const DocumentsRepository = require('../../../data/mongoose/repositories/DocumentsRepository');
+const DocumentsRepository = require('../../../data/mongoose/repositories/documents/DocumentsRepository');
 
 const DocumentsController = () => {
   const create = async (request, response) => {

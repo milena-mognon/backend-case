@@ -1,4 +1,4 @@
-const DocumentModel = require('../schema/documents/DocumentSchema');
+const DocumentModel = require('../../schema/documents/DocumentSchema');
 
 /** Precisa implementar as funções presentes na interface DocumentRepositoryInterface */
 const DocumentsRepository = () => {
