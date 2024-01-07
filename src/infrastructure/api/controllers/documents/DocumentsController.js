@@ -1,6 +1,7 @@
 const CreateDocumentUseCase = require('../../../../application/documents/usecases/CreateDocumentUseCase/CreateDocument.usecase');
 const FindDocumentByIdUseCase = require('../../../../application/documents/usecases/FindDocumentByIdUseCase/FindDocumentById.usecase');
 const FindDocumentsUseCase = require('../../../../application/documents/usecases/FindDocumentsUseCase/FindDocuments.usecase');
+const FindUserByIdUseCase = require('../../../../application/users/usecases/FindUserById/FindUserById.usecase');
 const DocumentsRepository = require('../../../data/mongoose/repositories/documents/DocumentsRepository');
 
 const DocumentsController = () => {
@@ -11,10 +12,14 @@ const DocumentsController = () => {
 
     const documentRepository = DocumentsRepository;
 
+    await FindUserByIdUseCase({
+      user_id: 'b76d305a-c738-4047-a692-094368bf4375',
+    });
+
     /** Repositório injetado como dependência - evita acoplamento */
     const document = await CreateDocumentUseCase(
       documentRepository,
-      { ...data, owner_id: user.id },
+      { ...data, owner_id: 'b76d305a-c738-4047-a692-094368bf4375' },
       files,
     );
 

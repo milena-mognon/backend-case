@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const uploadConfig = require('../config/MulterUploadConfig');
+const ServerError = require('../../../../domain/shared/errors/ServerError');
 
 /** Implementação de Armazenamento em disco - segue a "interface" StorageProvider */
 const DiskStorageProvider = () => {
@@ -13,7 +14,7 @@ const DiskStorageProvider = () => {
 
       fs.unlinkSync(path.resolve(uploadConfig.tmpFolder, filename));
     } catch (error) {
-      throw new Error('Ocorreu um erro ao fazer o upload do arquivo!');
+      ServerError('Ocorreu um erro ao fazer o upload do arquivo!');
     }
 
     return filename;
@@ -26,7 +27,7 @@ const DiskStorageProvider = () => {
       await fs.promises.stat(filePath);
       await fs.promises.unlink(filePath);
     } catch (error) {
-      throw new Error('Ocorreu um erro ao deletar o arquivo!');
+      ServerError('Ocorreu um erro ao deletar o arquivo!');
     }
   };
 

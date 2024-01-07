@@ -1,17 +1,18 @@
 const { compare } = require('bcryptjs');
 const { sign } = require('jsonwebtoken');
+const NotAuthorizedError = require('../../domain/shared/errors/NotAuthorizedError');
 
 const AuthenticateUseCase = async (repository, { email, password }) => {
   const user = await repository().findByEmail(email);
 
   if (!user) {
-    throw new Error('Not Authorized');
+    NotAuthorizedError('Not Authorized');
   }
 
   const hashedPassword = await compare(password, user.password);
 
   if (!hashedPassword) {
-    throw new Error('Not Authorized');
+    NotAuthorizedError('Not Authorized');
   }
 
   const token = sign(

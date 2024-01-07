@@ -1,14 +1,11 @@
 const newDocument = require('../../../../domain/documents/entities/Document');
 const StorageProvider = require('../../../../infrastructure/provider/StorageProvider');
-const FindUserByIdUseCase = require('../../../users/usecases/FindUserById/FindUserById.usecase');
 
 const CreateDocumentUseCase = async (
   repository,
   { title, description, keywords, owner_id },
   files,
 ) => {
-  await FindUserByIdUseCase({ user_id: owner_id });
-
   const formattedDocument = {
     title,
     description,

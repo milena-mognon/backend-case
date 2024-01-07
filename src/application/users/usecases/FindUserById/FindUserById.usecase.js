@@ -1,10 +1,11 @@
+const ResourceNotFoundError = require('../../../../domain/shared/errors/ResourceNotFoundError');
 const UsersRepository = require('../../../../infrastructure/data/mongoose/repositories/users/UsersRepository');
 
 const FindUserByIdUseCase = async ({ user_id }) => {
   const user = await UsersRepository().findById(user_id);
 
   if (!user) {
-    throw new Error('user not found');
+    ResourceNotFoundError('user not found');
   }
 
   return user;
