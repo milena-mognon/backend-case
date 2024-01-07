@@ -1,18 +1,14 @@
 const DocumentModel = require('../../schema/documents/DocumentSchema');
+const newDocument = require('../../../../../domain/documents/entities/Document');
 
 /** Precisa implementar as funções presentes na interface DocumentRepositoryInterface */
 const DocumentsRepository = () => {
   const create = async (document) => {
-    const newDocument = await DocumentModel.create({
+    const savedDocument = await DocumentModel.create({
       ...document,
     });
 
-    return {
-      id: newDocument._id,
-      title: newDocument.title,
-      description: newDocument.description,
-      keywords: newDocument.keywords,
-    };
+    return newDocument(savedDocument);
   };
 
   const findById = async (document_id) => {

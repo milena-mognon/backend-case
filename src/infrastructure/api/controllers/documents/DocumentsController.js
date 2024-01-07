@@ -5,6 +5,7 @@ const DocumentsRepository = require('../../../data/mongoose/repositories/documen
 
 const DocumentsController = () => {
   const create = async (request, response) => {
+    const user = request.user;
     const data = request.body;
     const { files } = request.files;
 
@@ -13,7 +14,7 @@ const DocumentsController = () => {
     /** Repositório injetado como dependência - evita acoplamento */
     const document = await CreateDocumentUseCase(
       documentRepository,
-      data,
+      { ...data, owner_id: user.id },
       files,
     );
 

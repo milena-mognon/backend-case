@@ -16,6 +16,7 @@ const AuthenticateUseCase = async (repository, { email, password }) => {
 
   const token = sign(
     {
+      id: user.id,
       name: user.name,
       email: email,
     },

@@ -1,5 +1,4 @@
 const { randomUUID } = require('node:crypto');
-// const { mongoose } = require('../../../mongoose');
 const { mongoose, Schema } = require('mongoose');
 
 const documentSchema = new mongoose.Schema(
@@ -17,6 +16,24 @@ const documentSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    owner_id: {
+      type: Schema.Types.UUID,
+      ref: 'users',
+      required: true,
+    },
+    related_files: [
+      {
+        _id: {
+          type: Schema.Types.UUID,
+          required: true,
+          default: () => randomUUID(),
+        },
+        filename: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
     keywords: [String],
   },
   { timestamps: true },
