@@ -27,9 +27,14 @@ const UsersRepository = () => {
       : undefined;
   };
 
+  const findById = async (id) => {
+    return await UserModel.exists({ _id: id });
+  };
+
   return {
     create,
     findByEmail,
+    findById,
   };
 };
 

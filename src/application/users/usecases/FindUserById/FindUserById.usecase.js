@@ -1,5 +1,7 @@
-const FindUserByIdUseCase = async (repository, { user_id }) => {
-  const user = await repository().findById(user_id);
+const UsersRepository = require('../../../../infrastructure/data/mongoose/repositories/users/UsersRepository');
+
+const FindUserByIdUseCase = async ({ user_id }) => {
+  const user = await UsersRepository().findById(user_id);
 
   if (!user) {
     throw new Error('user not found');
