@@ -1,5 +1,17 @@
 # Case para Desenvolvedor Backend: API de Gerenciamento de Documentos Jurídicos
 
+## 🛠️ Ferramentas e Tecnologias Utilizadas
+
+- JavaScript
+- NodeJS
+- Mongoose
+- Docker
+- Docker Compose
+- Jest
+- Github Actions
+- JsonWebToken (JWT)
+- Bcryptjs
+
 Nesse projeto o arquivo .env foi enviado ao github com senhas e chaves de autenticação para facilitar a analise do case. Em projetos reais esses dados não são enviados au GitHub.
 
 ## 📒 Observações sobre o desenvolvimento
@@ -30,16 +42,6 @@ Nesse projeto o arquivo .env foi enviado ao github com senhas e chaves de autent
 ### Documentação API
 
 Não foi possível desenvolver a documentação usando Swagger no período de realização do case. Porém, para testar a API foi criado uma documentação simples usando Insomnia. O arquivo da documentação está na raiz do projeto.
-
-## 🛠️ Ferramentas e Tecnologias Utilizadas
-
-- JavaScript
-- NodeJS
-- Mongoose
-- Docker
-- Jest
-- Github Actions
-- JsonWebToken
 
 ## 🚀 Como executar o projeto
 
