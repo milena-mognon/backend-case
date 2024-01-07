@@ -20,9 +20,11 @@ const FakeDocumentRepository = () => {
     return documents;
   };
 
-  const save = (id) => {};
-  const remove = (id) => {};
-  return { create, findById, find, save, remove };
+  const findByOwnerId = async (owner_id) => {
+    return documents.filter((doc) => doc.owner_id === owner_id);
+  };
+
+  return { create, findById, find, findByOwnerId };
 };
 
 module.exports = FakeDocumentRepository;

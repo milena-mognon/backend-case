@@ -13,6 +13,7 @@ documentsRoutes.post(
   DocumentsController().create,
 );
 
+documentsRoutes.get('/my', DocumentsController().findByOwnerId);
 documentsRoutes.get('/:id', DocumentsController().findById);
 documentsRoutes.get('/', DocumentsController().find);
 

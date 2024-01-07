@@ -35,10 +35,18 @@ const DocumentsRepository = () => {
     });
   };
 
+  const findByOwnerId = async (owner_id) => {
+    const documents = await DocumentModel.find({ owner_id });
+    return documents.map((doc) => {
+      return newDocument(doc);
+    });
+  };
+
   return {
     create,
     findById,
     find,
+    findByOwnerId,
   };
 };
 
