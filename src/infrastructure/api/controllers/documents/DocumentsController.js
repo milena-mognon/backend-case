@@ -6,11 +6,16 @@ const DocumentsRepository = require('../../../data/mongoose/repositories/documen
 const DocumentsController = () => {
   const create = async (request, response) => {
     const data = request.body;
+    const { files } = request.files;
 
     const documentRepository = DocumentsRepository;
 
     /** Repositório injetado como dependência - evita acoplamento */
-    const document = await CreateDocumentUseCase(documentRepository, data);
+    const document = await CreateDocumentUseCase(
+      documentRepository,
+      data,
+      files,
+    );
 
     return response.json(document);
   };
