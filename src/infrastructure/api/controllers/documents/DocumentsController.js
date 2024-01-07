@@ -12,14 +12,12 @@ const DocumentsController = () => {
 
     const documentRepository = DocumentsRepository;
 
-    await FindUserByIdUseCase({
-      user_id: 'b76d305a-c738-4047-a692-094368bf4375',
-    });
+    await FindUserByIdUseCase({ user_id: user.id });
 
     /** Repositório injetado como dependência - evita acoplamento */
     const document = await CreateDocumentUseCase(
       documentRepository,
-      { ...data, owner_id: 'b76d305a-c738-4047-a692-094368bf4375' },
+      { ...data, owner_id: user.id },
       files,
     );
 
